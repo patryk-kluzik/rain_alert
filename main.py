@@ -23,9 +23,14 @@ hourly_data_12_hours = data["hourly"][:12]
 
 weather_codes_for_12_hours = [codes["weather"][0] for codes in hourly_data_12_hours]
 
-codes_to_bring_umbrella = [code["id"] for code in weather_codes_for_12_hours if code["id"] < 600]
+when_to_bring_umbrella = {}
+for index, hour_data in enumerate(weather_codes_for_12_hours):
+    if hour_data["id"] < 600:
+        bring_umbrella = True
+        when_to_bring_umbrella[index] = hour_data["id"]
 
-if not codes_to_bring_umbrella:
-    print("not raining")
+if when_to_bring_umbrella:
+    print("it's going raining")
+    print(list(when_to_bring_umbrella.keys()))
 else:
-    print("its raining")
+    print("it isn't going to rain")
