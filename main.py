@@ -1,14 +1,16 @@
 import requests
 import datetime
+import os
 from twilio.rest import Client
 
 TWILIO_NUMBER = '+12183001930'
-MY_NUMBER = "+447979206765"
+MY_NUMBER = os.environ.get("MY_NUMBER")
 
-account_sid = 'ACe5a2486de26d0a775ae49262e63ff9db'
-auth_token = 'ab136327f0588021748e01aa1341c229'
+account_sid = os.environ.get("ACCOUNT_SID")
+auth_token = os.environ.get("AUTH_TOKEN")
 
-API_KEY = "a0468448a07475040abfad57749f4a33"
+
+API_KEY = os.environ.get("API_KEY_OWM")
 api_call = "https://api.openweathermap.org/data/2.5/onecall"
 my_lat = 52.399137
 my_lon = -1.520814
